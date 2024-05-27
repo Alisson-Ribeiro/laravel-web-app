@@ -41,7 +41,7 @@ class JobController extends Controller
         ]);
 
         $employerUser = $job->employer->user;
-        Mail::to($employerUser->email)->send(new \App\Mail\JobPosted($job));
+        Mail::to($employerUser->email)->queue(new \App\Mail\JobPosted($job));
 
         // mail::to('$job->employer->user')->
         // send(new \App\Mail\JobPosted($job));
